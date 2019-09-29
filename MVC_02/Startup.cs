@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MVC_02.Data;
+using MVC_02.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace Exercicios
@@ -39,6 +40,8 @@ namespace Exercicios
             services.AddDbContext<PerguntasContext>(opt =>
                 opt.UseMySql(Configuration.GetConnectionString("PerguntasContext"), builder =>
                     builder.MigrationsAssembly("Exercicios")));
+
+            services.AddScoped<PerguntasService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

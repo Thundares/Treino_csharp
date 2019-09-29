@@ -10,5 +10,6 @@ namespace MVC_02.Data
         }
 
         public DbSet<Pergunta> Pergunta {get; set;}
+
     }
 }

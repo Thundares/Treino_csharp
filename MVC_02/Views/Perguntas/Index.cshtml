@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<MVC_02.Models.Pergunta>
 
 @{
     ViewData["Title"] = "Perguntas";
@@ -18,4 +18,45 @@
 
 <div class="text-center">
     <h1 class="display-4">Página das Perguntas</h1>
+</div>
+
+<div>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Perguntas
+                </th>
+                <th>
+                    Alternativa 1
+                </th>
+                <th>
+                    Alternativa 2
+                </th>
+                <th>
+                    Alternativa 3
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Perg)
+                    </td>
+                </tr>
+                @foreach(var x in item.Alternativas)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => x.Texto)
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
 </div>
